@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static', filename='graphics.css') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+  <title>FreeWeather</title>
+</head>
+
+<script>
+  function refreshPage() {
+    location.reload();
+  }
+</script>
+
+<body class="body1">
+  <div class="center-content">
+    <h2><strong>Free Weather Application</strong></h2>
+  </div>
+  <div class="center-content">
+
+    <img src="{{url_for('static', filename='sky2.jpg')}}" class="full-width" alt="Picture of the sky">
+  </div>
+  <div class="container vertical-center">
+    <h2>Enter City:</h2>
+    <div class="container text-center">
+      <form action="/location" method="get" onsubmit="refreshPage()">
+        <label for="input_data">Input:</label>
+        <input type="text" id="input_data" name="location" placeholder="Enter location"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>

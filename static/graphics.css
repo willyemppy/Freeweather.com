@@ -1,0 +1,41 @@
+#topMargin {
+    margin-top: 100px;
+}
+
+.body1 {
+    background-color: lightgrey;
+}
+
+.body2 {
+    background-color: grey;
+}
+
+p {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    /* 100% of the viewport height */
+}
+
+.full-width {
+    width: 80%;
+    max-height: 60vh;
+    /* Adjust the max height as needed */
+
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    /* Horizontal centering */
+    align-items: center;
+    /* Vertical centering */
+}
