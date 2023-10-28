@@ -2,37 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{url_for('static', filename='graphics.css') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
-  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
-  <title>{{location1}} weather</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='graphics.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+    <title>{{location}} weather</title>
 </head>
 
 <body class="body2">
-  <div class="center-content">
-    <h2><strong>Weather conditions in {{location1}}</strong></h2>
-  </div>
-  <div class="center-content" class="p">
+<div class="center-content">
+    <h2><strong>Weather conditions in {{location}}</strong></h2>
+</div>
+<div class="center-content" class="p">
 
     <ol>
-      <p>Current temperature: {{ temperature }}&deg;C</p>
+        <p>Current temperature: {{ temperature }}&deg;C</p>
     </ol>
 
     <ol>
-      <p>Feels like: {{ feels_like }}&deg;C</p>
+        <p>Feels like: {{ feels_like }}&deg;C</p>
     </ol>
 
     <ol>
-      <p>Wind speed: {{ wind_speed }} km/hr</p>
+        <p>Wind speed: {{ wind_speed }} km/hr</p>
     </ol>
-  </div>
-  <div class="center-content">
+</div>
+<div class="center-content">
     <img src="{{url_for('static', filename='sky.jpg')}}" class="full-width" alt="Picture of the sky">
-  </div>
+</div>
 </body>
 
 </html>
