@@ -9,7 +9,7 @@ def openWeatherAPI(location):
     try:
         # geolocation api to generate the longitude and latitude of the specified location
         with urlopen(
-                f"http://api.openweathermap.org/geo/1.0/direct?q={location}&limit=1&appid=44bdf697b18c02331c87caa919ba8464"
+                f"http://api.openweathermap.org/geo/1.0/direct?q={location}&limit=1&appid=storage"
         ) as source:
             data = source.read()
             data1 = json.loads(data)
@@ -22,7 +22,7 @@ def openWeatherAPI(location):
         # using the actual weather API to generate the weather of the specified location,
         # using the longitude and latitude obtained above
         with urlopen(
-                f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid=44bdf697b18c02331c87caa919ba8464"
+                f"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid=storage"
         ) as source:
             data = source.read()
             new_data = json.loads(data)
