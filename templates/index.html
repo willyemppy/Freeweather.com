@@ -4,67 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='graphics.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='graphics.css') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
     <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
     <title>FreeWeather</title>
+    <!-- Google Fonts for styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <script>
-
-    //refreshes page upon form submission, so that the data is not being cached by the browser
-
     function refreshPage() {
-      location.reload();
+        location.reload();
     }
 
-    /*
-    checks that the value in the form contains only letters
-    if the form contains non-alphabetic characters, then the user is prompted to re-enter letters only
-    And the form borders turn red.
-    */
-
     function validateForm() {
-       var locationInput = document.getElementById('location');
-       var locationValue = locationInput.value;
+        var locationInput = document.getElementById('location');
+        var locationValue = locationInput.value;
 
-     //Check if 'location' contains only letters, whitespace also allowed
-     // Check if 'location' contains only letters, and whitespace is allowed
-      if (/^[A-Za-z\s]+$/.test(locationValue)) {
-          locationInput.style.borderColor = '';  // Remove red border
-          locationInput.setCustomValidity('');    // Reset custom validity message
-          return true;
-      } else {
-          locationInput.style.borderColor = 'red';
-          locationInput.setCustomValidity('Enter only letters');
-          return false;
-      }
+        if (/^[A-Za-z\s]+$/.test(locationValue)) {
+            locationInput.style.borderColor = '';
+            locationInput.setCustomValidity('');
+            return true;
+        } else {
+            locationInput.style.borderColor = 'red';
+            locationInput.setCustomValidity('Enter only letters');
+            return false;
+        }
     }
 </script>
 
 <body class="body1">
-<div class="center-content">
-    <h2><strong>Free Weather Application</strong></h2>
-</div>
-<div class="center-content">
+    <div class="header">
+        <h1>Free Weather Application</h1>
+    </div>
 
-    <img src="{{url_for('static', filename='sky2.jpg')}}" class="full-width" alt="Picture of the sky">
-</div>
-<div class="container vertical-center">
-    <h2>Enter City:</h2>
-    <div class="container text-center">
+    <div class="center-content">
+        <img src="{{ url_for('static', filename='sky2.jpg') }}" class="full-width" alt="Picture of the sky">
+    </div>
 
-        <!--If validateForm() returns true, the page will be refreshed using refreshPage().
-        If validateForm() returns false, the form submission is prevented (return false;),
-        and the page is not refreshed.-->
-
+    <div class="container">
+        <h2>Enter City:</h2>
         <form action="/" method="post" onsubmit="return validateForm();">
-            <label for="location">Input:</label>
-            <input type="text" id="location" name="location" placeholder="Enter location"><br><br>
-            <input type="submit" value="Submit">
+            <div class="form-group">
+                <input type="text" id="location" name="location" placeholder="Enter location" class="input-field">
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
         </form>
+
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <ul class="flash-messages">
@@ -74,11 +62,7 @@
         </ul>
         {% endif %}
         {% endwith %}
-
     </div>
-</div>
-
-
 </body>
 
 </html>
